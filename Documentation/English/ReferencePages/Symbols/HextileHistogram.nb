@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     36520,        930]
-NotebookOptionsPosition[     25092,        716]
-NotebookOutlinePosition[     25877,        742]
-CellTagsIndexPosition[     25798,        737]
+NotebookDataLength[     92040,       2171]
+NotebookOptionsPosition[     83303,       1987]
+NotebookOutlinePosition[     84304,       2018]
+CellTagsIndexPosition[     84190,       2012]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -83,7 +83,21 @@ Cell[BoxData[GridBox[{
   }]], "3ColumnTableMod",
  CellChangeTimes->{{3.8916009639248877`*^9, 3.89160100615336*^9}, {
   3.89160106303251*^9, 3.891601083023362*^9}},
- CellID->1078622084,ExpressionUUID->"0b40ab4a-d004-4b3d-bdcc-f151709f8db4"]
+ CellID->1078622084,ExpressionUUID->"0b40ab4a-d004-4b3d-bdcc-f151709f8db4"],
+
+Cell[TextData[{
+ Cell[BoxData[
+ "HextileHistogram"], "InlineFormula",ExpressionUUID->
+  "7f3db40c-2bee-4d2a-906e-9222e4a252c0"],
+ " takes all options of ",
+ Cell[BoxData[
+  ButtonBox["Graphics",
+   BaseStyle->"Link"]], "InlineFormula",ExpressionUUID->
+  "d3c64178-3ac1-43fd-a90e-ea9df3cedd6d"],
+ "."
+}], "Notes",
+ CellChangeTimes->{{3.891620440902418*^9, 3.891620464005143*^9}},
+ CellID->1172259713,ExpressionUUID->"66fe9375-8ec0-4fb8-8b69-6bd9b3a2ae09"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -158,10 +172,10 @@ Cell[TextData[{
     "bcbb9c11-95a8-4d36-8473-8c5424c27f3d"], 
    DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
     "7c7daaf5-fdcb-4d6d-9002-5481960cae10", 
-     "bdcf37f5-3452-4add-93cd-946e0bd3065c"], $CellContext`cellobj$$ = 
+     "e2df7c1a-bd6e-4a43-bec4-ef118ae6977a"], $CellContext`cellobj$$ = 
     CellObject[
     "9b9105c7-ff70-4cad-a31f-fdd97970e983", 
-     "8f13f258-e78b-4e92-9c97-27e784729571"]}, 
+     "5fcb9499-4289-4bfb-bfee-393e09d65b71"]}, 
     TemplateBox[{
       GraphicsBox[{{
          Thickness[0.06], 
@@ -223,6 +237,8 @@ Cell[BoxData[
  CellID->686530403,ExpressionUUID->"05c7b2e5-5386-4e79-ba77-7e82e637ed2d"]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[GridBox[{
     {
@@ -236,6 +252,673 @@ Cell[BoxData[
    }],
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->86847890,ExpressionUUID->"8baca691-d98e-4daf-8ff0-66903059c696"],
+
+Cell["Create a list of random 2D points:", "ExampleText",
+ TaggingRules->{},
+ CellChangeTimes->{{3.891596355452181*^9, 3.891596356601029*^9}},
+ CellTags->"DefaultContent",
+ CellID->319073343,ExpressionUUID->"2adb4935-20d3-4b30-9251-322e13f5db4c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SeedRandom", "[", "889", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"RandomVariate", "[", 
+    RowBox[{
+     RowBox[{"MultinormalDistribution", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"10", ",", "10"}], "}"}], ",", 
+       RowBox[{"7", "*", 
+        RowBox[{"IdentityMatrix", "[", "2", "]"}]}]}], "]"}], ",", "300"}], 
+    "]"}]}], ";"}]}], "Input",
+ TaggingRules->{},
+ CellChangeTimes->{{3.891596348127149*^9, 3.8915963481305933`*^9}, {
+  3.8915964905340557`*^9, 3.8915965291884937`*^9}, {3.8915967580827847`*^9, 
+  3.891596767723915*^9}, {3.8915968306226683`*^9, 3.891596831073655*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1199084357,ExpressionUUID->"de73bfac-04d8-426d-98ca-6799407d7e4a"],
+
+Cell["Show corresponding histogram (together with the points):", "ExampleText",
+ TaggingRules->{},
+ CellChangeTimes->{{3.8915963980221453`*^9, 3.891596403557914*^9}, {
+  3.891596451283546*^9, 3.891596463284569*^9}, {3.891596785565818*^9, 
+  3.8915967866355*^9}},
+ CellID->808302032,ExpressionUUID->"af0e6c5b-3f48-4e12-9879-be395cdaaa72"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HextileHistogram", "[", 
+  RowBox[{"data", ",", "10", ",", 
+   RowBox[{"PlotRange", "->", "All"}], ",", 
+   RowBox[{"Epilog", "->", 
+    RowBox[{"{", 
+     RowBox[{"Red", ",", 
+      RowBox[{"Point", "[", "data", "]"}]}], "}"}]}]}], "]"}]], "Input",
+ TaggingRules->{},
+ CellChangeTimes->{{3.891596378327149*^9, 3.891596445689641*^9}},
+ CellLabel->"In[3]:=",
+ CellID->1933288277,ExpressionUUID->"d8867ab2-8414-483c-9a64-851e11aee155"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.09604336708179095, 0.09604336708179095, 0.45820810126169154`], 
+      PolygonBox[
+       NCache[{{10, 5 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         10, (-5) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         15, (-10) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         20, (-5) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         20, 5 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         15, 10 3^Rational[-1, 2] + 5 3^Rational[1, 2]}}, {{
+         10, 11.547005383792515`}, {10, 5.773502691896256}, {
+         15, 2.8867513459481273`}, {20, 5.773502691896256}, {
+         20, 11.547005383792515`}, {15, 14.433756729740644`}}]]},
+     "107"],
+    Annotation[#, 107, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0., 0., 0.4], 
+      PolygonBox[
+       NCache[{{0, 5 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         0, (-5) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         5, (-10) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         10, (-5) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         10, 5 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         5, 10 3^Rational[-1, 2] + 5 3^Rational[1, 2]}}, {{
+         0, 11.547005383792515`}, {0, 5.773502691896256}, {
+         5, 2.8867513459481273`}, {10, 5.773502691896256}, {
+         10, 11.547005383792515`}, {5, 14.433756729740644`}}]]},
+     "131"],
+    Annotation[#, 131, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.3578772027768411, 0.3578772027768411, 0.6168952744102068], 
+      PolygonBox[
+       NCache[{{5, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         5, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         10, (-10) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         15, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         15, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         10, 10 3^Rational[-1, 2] + 10 3^Rational[1, 2]}}, {{
+         5, 20.2072594216369}, {5, 14.433756729740642`}, {
+         10, 11.547005383792513`}, {15, 14.433756729740642`}, {
+         15, 20.2072594216369}, {10, 23.09401076758503}}]]},
+     "54"],
+    Annotation[#, 54, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.7958450262131977, 0.7958450262131977, 0.8823303189170896], 
+      PolygonBox[
+       NCache[{{5, 5 3^Rational[-1, 2]}, {5, (-5) 3^Rational[-1, 2]}, {
+         10, (-10) 3^Rational[-1, 2]}, {15, (-5) 3^Rational[-1, 2]}, {
+         15, 5 3^Rational[-1, 2]}, {10, 10 3^Rational[-1, 2]}}, {{
+         5, 2.886751345948129}, {5, -2.886751345948129}, {
+         10, -5.773502691896258}, {15, -2.886751345948129}, {
+         15, 2.886751345948129}, {10, 5.773502691896258}}]]},
+     "6"],
+    Annotation[#, 6, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.99, 0.99, 1.], 
+      PolygonBox[
+       NCache[{{-5, 5 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {-5, (-5) 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         0, (-10) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         5, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         5, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         0, 10 3^Rational[-1, 2] + 10 3^Rational[1, 2]}}, {{-5, 
+          20.2072594216369}, {-5, 14.433756729740642`}, {
+         0, 11.547005383792513`}, {5, 14.433756729740642`}, {
+         5, 20.2072594216369}, {0, 23.09401076758503}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.99, 0.99, 1.], 
+      PolygonBox[
+       NCache[{{15, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         15, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         20, (-10) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         25, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         25, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         20, 10 3^Rational[-1, 2] + 10 3^Rational[1, 2]}}, {{
+         15, 20.2072594216369}, {15, 14.433756729740642`}, {
+         20, 11.547005383792513`}, {25, 14.433756729740642`}, {
+         25, 20.2072594216369}, {20, 23.09401076758503}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ]},
+  Epilog->{
+    RGBColor[1, 0, 0], 
+    PointBox[CompressedData["
+1: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
+4DSS8u7nkA6kvs4aWEDzaJRC8sjlz1ystPJYV6XAhewyPW3zaSw8P3Hc/swP
+HSwOHXo56S2Be1Sk66g3gWOK331Mt+sizkkof5/eOx03KJ8oddfC/d7/ZE5P
+1IRG2+G5ankUzj7KWH1/ChcfqjXf2qUo4NeaS/XUC3U0Kn3ex8vhoP5qm/2i
+xVwEb1Ss6LzKQeRulyS5KlV0Fr1Q63Cl97zAzsvfyliwzrmacHkviQBby2sf
+19G5eu7xoZt2DIxvVlk/KNYCrJd1xVKaWOr3LE3Clo1NU4w7WVYUGmRuxK98
+JECE1e0htjoLFh7pPz1b6H6temH3ifbZOZe5Ji1XOKi1PnHh1B8xDvTerdCZ
+JUBB2G/7T0IezPynv9h5jkR8Y2RFAr0XOV0jO42fKEJa9ULIA5p7r0VH299i
+kug+LGpepyxEZvAap3XyGpCNy9QgNhCQPyAxPLuTgMIEuRnMCLpXXL+9dnUT
+YGhOmN44T4jPo3XKzfcJvC/M/fyviYKKUPmXgwQLg3zh8OqlHGgEuB5eTPML
+N3aKU9d6Iap/GGk8iKU5aIqn4SYLPlqlivZIJJOYdlsuIz2JAf7SEZneg2JE
+TklMzxrVA7f4wukpH7jY9VDnjIsFF6f733e0BZCYsTVhoC5IBzXneZV7V/Bg
+0V9i8rFMFY+lE7LT/rGRcLXbbZkuG4lBrv0T3+livoeZhOOwBoLaM9pnxwvg
+KBogvl/kwtTXhyD6VDGUWJf9TFcX+ZcDZ+wtVAEzfnlEI4eLDIP6qs7tLJw9
+FqyUNo2JxRWtuVVbOTSHLXJ128aH0Yh6df8pHu4wzyV9qhZgkYj6l0frf4+O
+fW3nPwrPH8+qDDSk52wCaVt/Bi47TZjRniHAXIeQhEiak0rlrySvprlkpO+n
+Sl8qH9lCQ5nb3SSk+g5e+kbPrz+02eisqSam+L6RMvvAhoFbCldoysGapKGh
+hF4CW9ocrC5+oP+fEO7tWakMlnXqqjwDDtKrpUbXmbFgZePfOuLGwW5br+tZ
+i5Ux3hL5sGCWGG5piW+v07nasHKhb/J+Et8PFzDeFdB+ibT9PUuR3qvdrIJE
+AVqY/3atb99quqfe5kht2M2CnOi5syatt/FDSjoL5yghbpGqucE2bbj/ez5W
+2kBz7vL28ss0B5088v7G51Ex7XOzEqebGoiet67vD703a079pM4uZ8Mre85M
+5zcE3hz7l/W7Xwy505YGuZM0cKUu9fOzbVw02cju5y6j+dZ/a7LdqDbaJVWu
+vczh43+KzP31
+     "]]},
+  Frame->True,
+  PlotRange->All,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{3.891619420924171*^9, 3.8916202804847803`*^9},
+ CellLabel->"Out[3]=",
+ CellID->1618741829,ExpressionUUID->"7cf547dd-1949-4e22-bfa3-6da8e2562610"]
+}, Open  ]],
+
+Cell["Another histogram with smaller tile size:", "ExampleText",
+ CellChangeTimes->{{3.891619428880584*^9, 3.8916194410673857`*^9}},
+ CellID->1736736222,ExpressionUUID->"4b46d3e7-4b90-47cf-bbf5-de1a958d191a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HextileHistogram", "[", 
+  RowBox[{"data", ",", "5", ",", 
+   RowBox[{"PlotRange", "->", "All"}], ",", 
+   RowBox[{"Epilog", "->", 
+    RowBox[{"{", 
+     RowBox[{"Red", ",", 
+      RowBox[{"Point", "[", "data", "]"}]}], "}"}]}]}], "]"}]], "Input",
+ TaggingRules->{},
+ CellChangeTimes->{{3.891596378327149*^9, 3.891596445689641*^9}, {
+  3.89161944241744*^9, 3.891619450290744*^9}},
+ CellLabel->"In[4]:=",
+ CellID->2105199059,ExpressionUUID->"963c37f2-b061-4e38-83b8-899f97d1cc42"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   TagBox[
+    TooltipBox[
+     {RGBColor[0., 0., 0.4], 
+      PolygonBox[
+       NCache[{{
+         Rational[15, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         10, (-5) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         Rational[25, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         Rational[25, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         10, 5 3^Rational[-1, 2] + 5 3^Rational[1, 2]}}, {{7.5, 
+         10.10362971081845}, {7.5, 7.216878364870321}, {
+         10, 5.773502691896256}, {12.5, 7.216878364870321}, {12.5, 
+         10.10362971081845}, {10, 11.547005383792515`}}]]},
+     "113"],
+    Annotation[#, 113, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.503919649499327, 0.503919649499327, 0.7054058481814103], 
+      PolygonBox[
+       NCache[{{
+         Rational[5, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         Rational[5, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         5, (-5) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         5, 5 3^Rational[-1, 2] + 5 3^Rational[1, 2]}}, {{2.5, 
+         10.10362971081845}, {2.5, 7.216878364870321}, {
+         5, 5.773502691896256}, {7.5, 7.216878364870321}, {7.5, 
+         10.10362971081845}, {5, 11.547005383792515`}}]]},
+     "28"],
+    Annotation[#, 28, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.8964537929302163, 0.8964537929302163, 0.943305329048616], 
+      PolygonBox[
+       NCache[{{
+         0, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         0, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[5, 2], (-5) 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         5, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         5, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[5, 2], 5 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}}, {{0, 14.433756729740644`}, {
+         0, 11.547005383792513`}, {2.5, 10.10362971081845}, {
+         5, 11.547005383792513`}, {5, 14.433756729740644`}, {2.5, 
+         15.877132402714707`}}]]},
+     "2"],
+    Annotation[#, 2, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.5512293960881804, 0.5512293960881804, 0.7340784218716245], 
+      PolygonBox[
+       NCache[{{
+         Rational[25, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         Rational[25, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         15, (-5) 3^Rational[-1, 2] + 5 3^Rational[1, 2]}, {
+         Rational[35, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         Rational[35, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          5 3^Rational[1, 2]}, {
+         15, 5 3^Rational[-1, 2] + 5 3^Rational[1, 2]}}, {{12.5, 
+         10.10362971081845}, {12.5, 7.216878364870321}, {
+         15, 5.773502691896256}, {17.5, 7.216878364870321}, {17.5, 
+         10.10362971081845}, {15, 11.547005383792515`}}]]},
+     "23"],
+    Annotation[#, 23, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.7424999999999999, 0.7424999999999999, 0.85], 
+      PolygonBox[
+       NCache[{{
+         10, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         10, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[25, 2], (-5) 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         15, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         15, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[25, 2], 5 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}}, {{10, 5.773502691896257}, {
+         10, 2.886751345948128}, {12.5, 1.4433756729740637`}, {
+         15, 2.886751345948128}, {15, 5.773502691896257}, {12.5, 
+         7.216878364870322}}]]},
+     "8"],
+    Annotation[#, 8, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.7808243219546922, 0.7808243219546922, 0.8732268617907225], 
+      PolygonBox[
+       NCache[{{
+         Rational[15, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         10, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         Rational[25, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         Rational[25, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         10, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}}, {{7.5, 
+         18.763883748662835`}, {7.5, 15.877132402714707`}, {
+         10, 14.433756729740642`}, {12.5, 15.877132402714707`}, {12.5, 
+         18.763883748662835`}, {10, 20.2072594216369}}]]},
+     "6"],
+    Annotation[#, 6, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.32194645744949035`, 0.32194645744949035`, 0.5951190651209033], 
+      PolygonBox[
+       NCache[{{
+         10, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         10, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[25, 2], (-5) 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         15, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         15, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[25, 2], 5 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}}, {{10, 14.433756729740644`}, {
+         10, 11.547005383792513`}, {12.5, 10.10362971081845}, {
+         15, 11.547005383792513`}, {15, 14.433756729740644`}, {12.5, 
+         15.877132402714707`}}]]},
+     "52"],
+    Annotation[#, 52, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.7254113705066998, 0.7254113705066998, 0.8396432548525454], 
+      PolygonBox[
+       NCache[{{
+         5, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         5, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], (-5) 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         10, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         10, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], 5 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}}, {{5, 5.773502691896257}, {
+         5, 2.886751345948128}, {7.5, 1.4433756729740637`}, {
+         10, 2.886751345948128}, {10, 5.773502691896257}, {7.5, 
+         7.216878364870322}}]]},
+     "9"],
+    Annotation[#, 9, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.3285284262667496, 0.3285284262667496, 0.5991081371313633], 
+      PolygonBox[
+       NCache[{{
+         5, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         5, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], (-5) 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         10, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         10, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], 5 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}}, {{5, 14.433756729740644`}, {
+         5, 11.547005383792513`}, {7.5, 10.10362971081845}, {
+         10, 11.547005383792513`}, {10, 14.433756729740644`}, {7.5, 
+         15.877132402714707`}}]]},
+     "51"],
+    Annotation[#, 51, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.8577056852533499, 0.8577056852533499, 0.9198216274262727], 
+      PolygonBox[
+       NCache[{{
+         Rational[5, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         Rational[5, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         5, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         5, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}}, {{2.5, 
+         18.763883748662835`}, {2.5, 15.877132402714707`}, {
+         5, 14.433756729740642`}, {7.5, 15.877132402714707`}, {7.5, 
+         18.763883748662835`}, {5, 20.2072594216369}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.99, 0.99, 1.], 
+      PolygonBox[
+       NCache[{{
+         15, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         15, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[35, 2], (-5) 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         20, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         20, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[35, 2], 5 3^Rational[-1, 2] + 
+          Rational[5, 2] 3^Rational[1, 2]}}, {{15, 5.773502691896257}, {
+         15, 2.886751345948128}, {17.5, 1.4433756729740637`}, {
+         20, 2.886751345948128}, {20, 5.773502691896257}, {17.5, 
+         7.216878364870322}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.8577056852533499, 0.8577056852533499, 0.9198216274262727], 
+      PolygonBox[
+       NCache[{{
+         15, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         15, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[35, 2], (-5) 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         20, Rational[-5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         20, Rational[5, 2] 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}, {
+         Rational[35, 2], 5 3^Rational[-1, 2] + 
+          Rational[15, 2] 3^Rational[1, 2]}}, {{15, 14.433756729740644`}, {
+         15, 11.547005383792513`}, {17.5, 10.10362971081845}, {
+         20, 11.547005383792513`}, {20, 14.433756729740644`}, {17.5, 
+         15.877132402714707`}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.99, 0.99, 1.], 
+      PolygonBox[
+       NCache[{{
+         Rational[25, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         Rational[25, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         15, (-5) 3^Rational[-1, 2] + 10 3^Rational[1, 2]}, {
+         Rational[35, 2], Rational[-5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         Rational[35, 2], Rational[5, 2] 3^Rational[-1, 2] + 
+          10 3^Rational[1, 2]}, {
+         15, 5 3^Rational[-1, 2] + 10 3^Rational[1, 2]}}, {{12.5, 
+         18.763883748662835`}, {12.5, 15.877132402714707`}, {
+         15, 14.433756729740642`}, {17.5, 15.877132402714707`}, {17.5, 
+         18.763883748662835`}, {15, 20.2072594216369}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ]},
+  Epilog->{
+    RGBColor[1, 0, 0], 
+    PointBox[CompressedData["
+1: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
+4DSS8u7nkA6kvs4aWEDzaJRC8sjlz1ystPJYV6XAhewyPW3zaSw8P3Hc/swP
+HSwOHXo56S2Be1Sk66g3gWOK331Mt+sizkkof5/eOx03KJ8oddfC/d7/ZE5P
+1IRG2+G5ankUzj7KWH1/ChcfqjXf2qUo4NeaS/XUC3U0Kn3ex8vhoP5qm/2i
+xVwEb1Ss6LzKQeRulyS5KlV0Fr1Q63Cl97zAzsvfyliwzrmacHkviQBby2sf
+19G5eu7xoZt2DIxvVlk/KNYCrJd1xVKaWOr3LE3Clo1NU4w7WVYUGmRuxK98
+JECE1e0htjoLFh7pPz1b6H6temH3ifbZOZe5Ji1XOKi1PnHh1B8xDvTerdCZ
+JUBB2G/7T0IezPynv9h5jkR8Y2RFAr0XOV0jO42fKEJa9ULIA5p7r0VH299i
+kug+LGpepyxEZvAap3XyGpCNy9QgNhCQPyAxPLuTgMIEuRnMCLpXXL+9dnUT
+YGhOmN44T4jPo3XKzfcJvC/M/fyviYKKUPmXgwQLg3zh8OqlHGgEuB5eTPML
+N3aKU9d6Iap/GGk8iKU5aIqn4SYLPlqlivZIJJOYdlsuIz2JAf7SEZneg2JE
+TklMzxrVA7f4wukpH7jY9VDnjIsFF6f733e0BZCYsTVhoC5IBzXneZV7V/Bg
+0V9i8rFMFY+lE7LT/rGRcLXbbZkuG4lBrv0T3+livoeZhOOwBoLaM9pnxwvg
+KBogvl/kwtTXhyD6VDGUWJf9TFcX+ZcDZ+wtVAEzfnlEI4eLDIP6qs7tLJw9
+FqyUNo2JxRWtuVVbOTSHLXJ128aH0Yh6df8pHu4wzyV9qhZgkYj6l0frf4+O
+fW3nPwrPH8+qDDSk52wCaVt/Bi47TZjRniHAXIeQhEiak0rlrySvprlkpO+n
+Sl8qH9lCQ5nb3SSk+g5e+kbPrz+02eisqSam+L6RMvvAhoFbCldoysGapKGh
+hF4CW9ocrC5+oP+fEO7tWakMlnXqqjwDDtKrpUbXmbFgZePfOuLGwW5br+tZ
+i5Ux3hL5sGCWGG5piW+v07nasHKhb/J+Et8PFzDeFdB+ibT9PUuR3qvdrIJE
+AVqY/3atb99quqfe5kht2M2CnOi5syatt/FDSjoL5yghbpGqucE2bbj/ez5W
+2kBz7vL28ss0B5088v7G51Ex7XOzEqebGoiet67vD703a079pM4uZ8Mre85M
+5zcE3hz7l/W7Xwy505YGuZM0cKUu9fOzbVw02cju5y6j+dZ/a7LdqDbaJVWu
+vczh43+KzP31
+     "]]},
+  Frame->True,
+  PlotRange->All,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{{3.891619445796693*^9, 3.8916194509236937`*^9}, 
+   3.891620280511682*^9},
+ CellLabel->"Out[4]=",
+ CellID->1871079807,ExpressionUUID->"932145a6-a055-4cdd-95be-6a39b9abf32c"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -312,6 +995,8 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSubsection",
  CellID->753926709,ExpressionUUID->"16621ce6-b849-44a1-98ca-bc65b6eb07e9"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[Cell[
   "ColorFunction", "ExampleSubsection",ExpressionUUID->
@@ -319,278 +1004,862 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSubsection",
  CellID->1092680863,ExpressionUUID->"a005190e-9d62-4b65-a9be-eab0cf446f61"],
 
-Cell[BoxData[
- InterpretationBox[Cell[
-  "PlotLegends", "ExampleSubsection",ExpressionUUID->
-   "1c9e92cb-6217-49b7-b26b-2ae438728cce"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1554598944,ExpressionUUID->"68b403b6-fdf4-45ab-a2e9-b1ac9cec03d4"],
+Cell["Histogram with custom color function:", "ExampleText",
+ CellChangeTimes->{{3.8916202971653423`*^9, 3.891620304838397*^9}},
+ CellID->205386040,ExpressionUUID->"d7d30d4c-54bc-4bd4-81c5-5ee2e3dd40c1"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
- InterpretationBox[Cell[
-  "AlignmentPoint", "ExampleSubsection",ExpressionUUID->
-   "df85211b-a3c9-43d9-9b56-2d0f732b701c"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1858402406,ExpressionUUID->"326b78f8-0ca6-417d-b1e5-bbf038aadc55"],
+ RowBox[{"HextileHistogram", "[", 
+  RowBox[{"data", ",", "3", ",", 
+   RowBox[{"ColorFunction", "->", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Blend", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Darker", "[", "Red", "]"}]}], "}"}], ",", "#"}], "]"}], 
+      "&"}], ")"}]}], ",", 
+   RowBox[{"PlotRange", "->", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.891619978212607*^9, 3.891620127334725*^9}, {
+  3.8916202615926*^9, 3.891620272101472*^9}},
+ CellLabel->"In[5]:=",
+ CellID->1283751707,ExpressionUUID->"b01c9458-f298-4548-92dc-42fa7fc6bfb9"],
 
 Cell[BoxData[
- InterpretationBox[Cell[
-  "AspectRatio", "ExampleSubsection",ExpressionUUID->
-   "83e06ed8-aa94-4d12-ac00-9366116b0029"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1167075674,ExpressionUUID->"343fee99-3f81-45c0-9584-892eaed42c1b"],
+ GraphicsBox[{
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[8, 15], 0.5333333333333333], 0, 
+       NCache[
+        Rational[1, 5], 0.2]], 
+      PolygonBox[
+       NCache[{{Rational[21, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         12, 5 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         12, 7 3^Rational[1, 2]}}, {{10.5, 11.258330249197702`}, {10.5, 
+         9.526279441628825}, {12, 8.660254037844386}, {13.5, 
+         9.526279441628825}, {13.5, 11.258330249197702`}, {
+         12, 12.12435565298214}}]]},
+     "37"],
+    Annotation[#, 37, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[2, 27], 0.07407407407407407], 0, 
+       NCache[
+        Rational[8, 9], 0.8888888888888888]], 
+      PolygonBox[
+       NCache[{{3, 5 3^Rational[1, 2]}, {3, 4 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         6, 4 3^Rational[1, 2]}, {6, 5 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         3, 8.660254037844386}, {3, 6.928203230275509}, {4.5, 
+         6.06217782649107}, {6, 6.928203230275509}, {6, 8.660254037844386}, {
+         4.5, 9.526279441628825}}]]},
+     "6"],
+    Annotation[#, 6, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[8, 135], 0.05925925925925926], 0, 
+       NCache[
+        Rational[41, 45], 0.9111111111111111]], 
+      PolygonBox[
+       NCache[{{3, 8 3^Rational[1, 2]}, {3, 7 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         6, 7 3^Rational[1, 2]}, {6, 8 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         3, 13.856406460551018`}, {3, 12.12435565298214}, {4.5, 
+         11.258330249197702`}, {6, 12.12435565298214}, {
+         6, 13.856406460551018`}, {4.5, 14.722431864335457`}}]]},
+     "5"],
+    Annotation[#, 5, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[22, 135], 0.16296296296296298`], 0, 
+       NCache[
+        Rational[34, 45], 0.7555555555555555]], 
+      PolygonBox[
+       NCache[{{12, 5 3^Rational[1, 2]}, {12, 4 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         15, 4 3^Rational[1, 2]}, {15, 5 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         12, 8.660254037844386}, {12, 6.928203230275509}, {13.5, 
+         6.06217782649107}, {15, 6.928203230275509}, {
+         15, 8.660254037844386}, {13.5, 9.526279441628825}}]]},
+     "12"],
+    Annotation[#, 12, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[2, 3], 0.6666666666666666], 0, 0], 
+      PolygonBox[
+       NCache[{{Rational[15, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         9, 5 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         9, 7 3^Rational[1, 2]}}, {{7.5, 11.258330249197702`}, {7.5, 
+         9.526279441628825}, {9, 8.660254037844386}, {10.5, 
+         9.526279441628825}, {10.5, 11.258330249197702`}, {
+         9, 12.12435565298214}}]]},
+     "46"],
+    Annotation[#, 46, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 45], 0.08888888888888889], 0, 
+       NCache[
+        Rational[13, 15], 0.8666666666666667]], 
+      PolygonBox[
+       NCache[{{Rational[15, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         9, 2 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         9, 4 3^Rational[1, 2]}}, {{7.5, 6.06217782649107}, {7.5, 
+         4.330127018922193}, {9, 3.4641016151377544`}, {10.5, 
+         4.330127018922193}, {10.5, 6.06217782649107}, {
+         9, 6.928203230275509}}]]},
+     "7"],
+    Annotation[#, 7, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 45], 0.08888888888888889], 0, 
+       NCache[
+        Rational[13, 15], 0.8666666666666667]], 
+      PolygonBox[
+       NCache[{{Rational[21, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         12, 8 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         12, 10 3^Rational[1, 2]}}, {{10.5, 16.454482671904334`}, {10.5, 
+         14.722431864335457`}, {12, 13.856406460551018`}, {13.5, 
+         14.722431864335457`}, {13.5, 16.454482671904334`}, {
+         12, 17.32050807568877}}]]},
+     "7"],
+    Annotation[#, 7, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[62, 135], 0.45925925925925926`], 0, 
+       NCache[
+        Rational[14, 45], 0.3111111111111111]], 
+      PolygonBox[
+       NCache[{{9, 8 3^Rational[1, 2]}, {9, 7 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         12, 7 3^Rational[1, 2]}, {12, 8 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         9, 13.856406460551018`}, {9, 12.12435565298214}, {10.5, 
+         11.258330249197702`}, {12, 12.12435565298214}, {
+         12, 13.856406460551018`}, {10.5, 14.722431864335457`}}]]},
+     "32"],
+    Annotation[#, 32, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 135], 0.02962962962962963], 0, 
+       NCache[
+        Rational[43, 45], 0.9555555555555556]], 
+      PolygonBox[
+       NCache[{{Rational[9, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         6, 2 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         6, 4 3^Rational[1, 2]}}, {{4.5, 6.06217782649107}, {4.5, 
+         4.330127018922193}, {6, 3.4641016151377544`}, {7.5, 
+         4.330127018922193}, {7.5, 6.06217782649107}, {
+         6, 6.928203230275509}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[16, 27], 0.5925925925925926], 0, 
+       NCache[
+        Rational[1, 9], 0.1111111111111111]], 
+      PolygonBox[
+       NCache[{{9, 5 3^Rational[1, 2]}, {9, 4 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         12, 4 3^Rational[1, 2]}, {12, 5 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         9, 8.660254037844386}, {9, 6.928203230275509}, {10.5, 
+         6.06217782649107}, {12, 6.928203230275509}, {
+         12, 8.660254037844386}, {10.5, 9.526279441628825}}]]},
+     "41"],
+    Annotation[#, 41, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[52, 135], 0.3851851851851852], 0, 
+       NCache[
+        Rational[19, 45], 0.4222222222222222]], 
+      PolygonBox[
+       NCache[{{6, 5 3^Rational[1, 2]}, {6, 4 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         9, 4 3^Rational[1, 2]}, {9, 5 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         6, 8.660254037844386}, {6, 6.928203230275509}, {7.5, 
+         6.06217782649107}, {9, 6.928203230275509}, {9, 8.660254037844386}, {
+         7.5, 9.526279441628825}}]]},
+     "27"],
+    Annotation[#, 27, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 15], 0.26666666666666666`], 0, 
+       NCache[
+        Rational[3, 5], 0.6]], 
+      PolygonBox[
+       NCache[{{Rational[9, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         6, 5 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         6, 7 3^Rational[1, 2]}}, {{4.5, 11.258330249197702`}, {4.5, 
+         9.526279441628825}, {6, 8.660254037844386}, {7.5, 
+         9.526279441628825}, {7.5, 11.258330249197702`}, {
+         6, 12.12435565298214}}]]},
+     "19"],
+    Annotation[#, 19, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[2, 135], 0.014814814814814815`], 0, 
+       NCache[
+        Rational[44, 45], 0.9777777777777777]], 
+      PolygonBox[
+       NCache[{{Rational[9, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         6, 8 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         6, 10 3^Rational[1, 2]}}, {{4.5, 16.454482671904334`}, {4.5, 
+         14.722431864335457`}, {6, 13.856406460551018`}, {7.5, 
+         14.722431864335457`}, {7.5, 16.454482671904334`}, {
+         6, 17.32050807568877}}]]},
+     "2"],
+    Annotation[#, 2, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 27], 0.14814814814814814`], 0, 
+       NCache[
+        Rational[7, 9], 0.7777777777777778]], 
+      PolygonBox[
+       NCache[{{12, 8 3^Rational[1, 2]}, {12, 7 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         15, 7 3^Rational[1, 2]}, {15, 8 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         12, 13.856406460551018`}, {12, 12.12435565298214}, {13.5, 
+         11.258330249197702`}, {15, 12.12435565298214}, {
+         15, 13.856406460551018`}, {13.5, 14.722431864335457`}}]]},
+     "11"],
+    Annotation[#, 11, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[14, 135], 0.1037037037037037], 0, 
+       NCache[
+        Rational[38, 45], 0.8444444444444444]], 
+      PolygonBox[
+       NCache[{{Rational[27, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         15, 5 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         15, 7 3^Rational[1, 2]}}, {{13.5, 11.258330249197702`}, {13.5, 
+         9.526279441628825}, {15, 8.660254037844386}, {16.5, 
+         9.526279441628825}, {16.5, 11.258330249197702`}, {
+         15, 12.12435565298214}}]]},
+     "8"],
+    Annotation[#, 8, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[2, 9], 0.2222222222222222], 0, 
+       NCache[
+        Rational[2, 3], 0.6666666666666666]], 
+      PolygonBox[
+       NCache[{{6, 8 3^Rational[1, 2]}, {6, 7 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         9, 7 3^Rational[1, 2]}, {9, 8 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         6, 13.856406460551018`}, {6, 12.12435565298214}, {7.5, 
+         11.258330249197702`}, {9, 12.12435565298214}, {
+         9, 13.856406460551018`}, {7.5, 14.722431864335457`}}]]},
+     "16"],
+    Annotation[#, 16, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[2, 135], 0.014814814814814815`], 0, 
+       NCache[
+        Rational[44, 45], 0.9777777777777777]], 
+      PolygonBox[
+       NCache[{{9, 2 3^Rational[1, 2]}, {9, 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[1, 2] 3^Rational[1, 2]}, {
+         12, 3^Rational[1, 2]}, {12, 2 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[5, 2] 3^Rational[1, 2]}}, {{
+         9, 3.4641016151377544`}, {9, 1.7320508075688772`}, {10.5, 
+         0.8660254037844386}, {12, 1.7320508075688772`}, {
+         12, 3.4641016151377544`}, {10.5, 4.330127018922193}}]]},
+     "2"],
+    Annotation[#, 2, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 135], 0.02962962962962963], 0, 
+       NCache[
+        Rational[43, 45], 0.9555555555555556]], 
+      PolygonBox[
+       NCache[{{6, 11 3^Rational[1, 2]}, {6, 10 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         9, 10 3^Rational[1, 2]}, {9, 11 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[23, 2] 3^Rational[1, 2]}}, {{
+         6, 19.05255888325765}, {6, 17.32050807568877}, {7.5, 
+         16.454482671904334`}, {9, 17.32050807568877}, {
+         9, 19.05255888325765}, {7.5, 19.918584287042087`}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 135], 0.02962962962962963], 0, 
+       NCache[
+        Rational[43, 45], 0.9555555555555556]], 
+      PolygonBox[
+       NCache[{{Rational[27, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         15, 2 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         15, 4 3^Rational[1, 2]}}, {{13.5, 6.06217782649107}, {13.5, 
+         4.330127018922193}, {15, 3.4641016151377544`}, {16.5, 
+         4.330127018922193}, {16.5, 6.06217782649107}, {
+         15, 6.928203230275509}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[2, 135], 0.014814814814814815`], 0, 
+       NCache[
+        Rational[44, 45], 0.9777777777777777]], 
+      PolygonBox[
+       NCache[{{15, 8 3^Rational[1, 2]}, {15, 7 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         18, 7 3^Rational[1, 2]}, {18, 8 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         15, 13.856406460551018`}, {15, 12.12435565298214}, {16.5, 
+         11.258330249197702`}, {18, 12.12435565298214}, {
+         18, 13.856406460551018`}, {16.5, 14.722431864335457`}}]]},
+     "2"],
+    Annotation[#, 2, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0, 0, 1], 
+      PolygonBox[
+       NCache[{{Rational[33, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         18, 5 3^Rational[1, 2]}, {
+         Rational[39, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[39, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         18, 7 3^Rational[1, 2]}}, {{16.5, 11.258330249197702`}, {16.5, 
+         9.526279441628825}, {18, 8.660254037844386}, {19.5, 
+         9.526279441628825}, {19.5, 11.258330249197702`}, {
+         18, 12.12435565298214}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[8, 135], 0.05925925925925926], 0, 
+       NCache[
+        Rational[41, 45], 0.9111111111111111]], 
+      PolygonBox[
+       NCache[{{Rational[15, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         9, 8 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         9, 10 3^Rational[1, 2]}}, {{7.5, 16.454482671904334`}, {7.5, 
+         14.722431864335457`}, {9, 13.856406460551018`}, {10.5, 
+         14.722431864335457`}, {10.5, 16.454482671904334`}, {
+         9, 17.32050807568877}}]]},
+     "5"],
+    Annotation[#, 5, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+       NCache[
+        Rational[4, 135], 0.02962962962962963], 0, 
+       NCache[
+        Rational[43, 45], 0.9555555555555556]], 
+      PolygonBox[
+       NCache[{{Rational[21, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         12, 2 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         12, 4 3^Rational[1, 2]}}, {{10.5, 6.06217782649107}, {10.5, 
+         4.330127018922193}, {12, 3.4641016151377544`}, {13.5, 
+         4.330127018922193}, {13.5, 6.06217782649107}, {
+         12, 6.928203230275509}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0, 0, 1], 
+      PolygonBox[
+       NCache[{{Rational[27, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         15, 8 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         15, 10 3^Rational[1, 2]}}, {{13.5, 16.454482671904334`}, {13.5, 
+         14.722431864335457`}, {15, 13.856406460551018`}, {16.5, 
+         14.722431864335457`}, {16.5, 16.454482671904334`}, {
+         15, 17.32050807568877}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0, 0, 1], 
+      PolygonBox[
+       NCache[{{15, 5 3^Rational[1, 2]}, {15, 4 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         18, 4 3^Rational[1, 2]}, {18, 5 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         15, 8.660254037844386}, {15, 6.928203230275509}, {16.5, 
+         6.06217782649107}, {18, 6.928203230275509}, {
+         18, 8.660254037844386}, {16.5, 9.526279441628825}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ]},
+  Frame->True,
+  PlotRange->All,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{{3.8916200699911003`*^9, 3.8916201276757727`*^9}, {
+  3.891620273749075*^9, 3.891620288417964*^9}},
+ CellLabel->"Out[5]=",
+ CellID->1617237217,ExpressionUUID->"7dca6f46-ed53-4c6e-85cc-a476ae9e8bc1"]
+}, Open  ]],
+
+Cell["Using a predefined color palette:", "ExampleText",
+ CellChangeTimes->{{3.8916201817276707`*^9, 3.891620197714381*^9}},
+ CellID->62721652,ExpressionUUID->"367edd35-3bf5-41db-a54e-2e65d82578fb"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
- InterpretationBox[Cell[
-  "Axes", "ExampleSubsection",ExpressionUUID->
-   "e926c692-01ae-463d-b173-af4b222a32b3"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->2072704867,ExpressionUUID->"15b20f15-40bc-4e57-a175-d9f0f29c4d8e"],
+ RowBox[{"HextileHistogram", "[", 
+  RowBox[{"data", ",", "3", ",", 
+   RowBox[{"ColorFunction", "->", 
+    RowBox[{"ColorData", "[", "\"\<WatermelonColors\>\"", "]"}]}], ",", 
+   RowBox[{"PlotRange", "->", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.891620321781115*^9, 3.8916203237174387`*^9}},
+ CellLabel->"In[6]:=",
+ CellID->229332292,ExpressionUUID->"7dfc59ed-6c64-4c66-a8bd-6bfea0b37d22"],
 
 Cell[BoxData[
- InterpretationBox[Cell[
-  "AxesLabel", "ExampleSubsection",ExpressionUUID->
-   "6eb23396-bff5-4545-801f-0a49b9b5f4a6"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1618461682,ExpressionUUID->"4000fda0-364a-4be4-a268-8e6344c6da54"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "AxesOrigin", "ExampleSubsection",ExpressionUUID->
-   "421888fc-98b3-4437-a2c9-2baaede8a68d"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1457616472,ExpressionUUID->"b5e4286f-1f3b-40b0-9eae-fff095f43aec"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "AxesStyle", "ExampleSubsection",ExpressionUUID->
-   "66dbeed5-7138-4371-84e5-e6de5cf33c65"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1814083575,ExpressionUUID->"b21f138b-7c7b-4eb2-946e-f3f1ec6dc1ba"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "Background", "ExampleSubsection",ExpressionUUID->
-   "a0b5de4a-6f01-4649-9fda-223ac13a8348"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1477308566,ExpressionUUID->"f2237a90-f978-4219-87cf-21bc1495a51d"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "BaselinePosition", "ExampleSubsection",ExpressionUUID->
-   "b2f21d80-b68a-4f66-a68d-d88dc9ce3898"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->2066625795,ExpressionUUID->"4e99056a-c35b-4fda-a373-ff604daf5ddd"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "BaseStyle", "ExampleSubsection",ExpressionUUID->
-   "374769ef-2704-44fd-91e8-fc048d966751"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->379229987,ExpressionUUID->"34852ea4-5136-490b-85c6-306b3a190232"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "ColorOutput", "ExampleSubsection",ExpressionUUID->
-   "6392ce32-8b82-4d96-9d1d-0b2298ea153e"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->2134410860,ExpressionUUID->"e0063471-0793-46df-ac56-de3a3c96a429"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "ContentSelectable", "ExampleSubsection",ExpressionUUID->
-   "549f6faa-00b9-4d22-beb2-fe3fdf0d30b6"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1476484532,ExpressionUUID->"233366ae-afd2-448b-9a33-da07e6eeb1ba"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "CoordinatesToolOptions", "ExampleSubsection",ExpressionUUID->
-   "a5bf6609-1594-4230-869a-6ac390b1422d"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1101988239,ExpressionUUID->"694bae73-0d2c-4457-b1f2-34452d660dc3"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "DisplayFunction", "ExampleSubsection",ExpressionUUID->
-   "d5fdfc31-7989-4acd-a0ef-8c9cd3ebcf19"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1217361145,ExpressionUUID->"a7911389-dea5-4ec9-80db-dac07cc32c5e"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "Epilog", "ExampleSubsection",ExpressionUUID->
-   "d82bc0c3-3ef8-4318-8bf5-2df3b679d82a"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1112059046,ExpressionUUID->"e0656268-c6ab-4be7-a273-3aae9dd811d5"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "FormatType", "ExampleSubsection",ExpressionUUID->
-   "d48cad61-0d61-4f8d-b7cd-e0be3edc2035"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->826206281,ExpressionUUID->"5ee5af1d-e07d-4d82-9d02-bd1cf2c2bdfd"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "Frame", "ExampleSubsection",ExpressionUUID->
-   "73f861e5-0599-4754-a2e8-fda18c1ac61f"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->419703265,ExpressionUUID->"6f22614e-cf55-4d75-aec1-100257bd9ca7"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "FrameLabel", "ExampleSubsection",ExpressionUUID->
-   "ccc773e2-4f5f-4590-9cdb-fd97bfdf9aa1"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1616478107,ExpressionUUID->"ed78704f-25d9-4e77-a6b4-1960a2954f93"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "FrameStyle", "ExampleSubsection",ExpressionUUID->
-   "345b55d2-baa2-475a-8767-8a632db6d723"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->331926152,ExpressionUUID->"c1db68cc-fd82-4d76-8ba7-f4b97cc97eca"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "FrameTicks", "ExampleSubsection",ExpressionUUID->
-   "5de1a81e-af86-4234-a025-747dedb79816"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1667805405,ExpressionUUID->"5ec20c00-7c1b-44f1-bbfd-a9e22e3747cb"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "FrameTicksStyle", "ExampleSubsection",ExpressionUUID->
-   "7435c80a-35d6-479f-b62c-4f681133f637"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1848881191,ExpressionUUID->"6e04458f-abc3-4cd3-bee5-666addc9b605"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "GridLines", "ExampleSubsection",ExpressionUUID->
-   "dc20e974-81ee-4965-b1a2-715b24ce2e08"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->57805047,ExpressionUUID->"5a50f737-2dd9-45e7-97ec-82ea3ca68b9e"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "GridLinesStyle", "ExampleSubsection",ExpressionUUID->
-   "31d61477-9ac6-4705-8826-b6f4ea5b0b69"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->866816485,ExpressionUUID->"8d724ffa-b507-4466-9be0-37bb795fe14e"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "ImageMargins", "ExampleSubsection",ExpressionUUID->
-   "bb119ec8-9ebd-4a7d-9337-7072b3fbf2f7"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->55602147,ExpressionUUID->"f68e09ab-fad6-426b-bad5-455493817166"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "ImagePadding", "ExampleSubsection",ExpressionUUID->
-   "1698b9a4-9ce6-429d-a036-c83c799c6cd1"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->349898184,ExpressionUUID->"0a748e11-b458-4829-b47f-9980e5b455b2"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "ImageSize", "ExampleSubsection",ExpressionUUID->
-   "9807ee84-e670-4818-be48-e980408dd809"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->928553002,ExpressionUUID->"2847a94a-8ffd-4ef5-b718-9300388e88e0"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "ImageSizeRaw", "ExampleSubsection",ExpressionUUID->
-   "0dc767b1-deb7-40f3-8ad6-dda475424b5d"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->426641865,ExpressionUUID->"c2dafbc9-c264-4a8a-b12c-c070c78c08a1"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "LabelStyle", "ExampleSubsection",ExpressionUUID->
-   "45ede792-0c09-4310-9a96-4708e0b3bfae"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->121927722,ExpressionUUID->"4ae4b310-b53f-4caa-97f1-9db974537e32"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "Method", "ExampleSubsection",ExpressionUUID->
-   "ec6d5df8-0716-43e7-80be-4a549855c8dd"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->539824416,ExpressionUUID->"5eb076d9-c71b-4ce5-bea9-cc67c4d34d70"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "PlotLabel", "ExampleSubsection",ExpressionUUID->
-   "33e31ef5-74af-4353-8122-afe672c4373a"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1858034784,ExpressionUUID->"032c97dc-3b9d-4497-8516-82a9cd15f519"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "PlotRange", "ExampleSubsection",ExpressionUUID->
-   "604c5a8d-31c8-4795-b9db-bc76ae650e7e"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1430903661,ExpressionUUID->"c9741da3-85c9-411e-89f4-5b51833258ca"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "PlotRangeClipping", "ExampleSubsection",ExpressionUUID->
-   "c5c9599d-9946-45db-ba57-bb02ee770e70"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1675951321,ExpressionUUID->"ff9c89c5-4173-4cf4-8694-d8e4aae636e3"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "PlotRangePadding", "ExampleSubsection",ExpressionUUID->
-   "c2252b5b-2305-4a66-b597-fd5377d89614"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1318337995,ExpressionUUID->"54077f50-1ded-4ce3-aae5-19b1c0494cb8"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "PlotRegion", "ExampleSubsection",ExpressionUUID->
-   "e9c0501a-e4e5-4d96-be33-c617ec28ad5f"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1717895866,ExpressionUUID->"8342ff2d-52ef-4c97-9c1e-24a89b714286"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "PreserveImageOptions", "ExampleSubsection",ExpressionUUID->
-   "a7f36b31-7e17-4716-a3c8-1b39fcb126d1"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1905669594,ExpressionUUID->"a2c84516-6a8c-48b8-bd6b-386a18fa0e36"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "Prolog", "ExampleSubsection",ExpressionUUID->
-   "abb99788-8c3d-42f0-8b06-e274bbe6dbb7"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1017755000,ExpressionUUID->"28eaa251-effb-4b6b-980a-d8911329e222"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "RotateLabel", "ExampleSubsection",ExpressionUUID->
-   "755631e7-7b2d-4558-87d0-6b930128fc9e"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->701036645,ExpressionUUID->"39be36cb-59f4-4199-b9bb-3e762f6f7519"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "Ticks", "ExampleSubsection",ExpressionUUID->
-   "5b654dda-9f26-4533-b520-38d21c5156a5"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1227605073,ExpressionUUID->"c9396203-c5b6-4fc7-bab4-a66f369f2523"],
-
-Cell[BoxData[
- InterpretationBox[Cell[
-  "TicksStyle", "ExampleSubsection",ExpressionUUID->
-   "5426976b-731e-4097-82b3-58e336f358ce"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellID->1483065182,ExpressionUUID->"987869b9-33b1-4b0b-bb38-27d10225655f"]
+ GraphicsBox[{
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.9179881999999999, 0.7811853999999999, 0.7453332], 
+      PolygonBox[
+       NCache[{{Rational[21, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         12, 5 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         12, 7 3^Rational[1, 2]}}, {{10.5, 11.258330249197702`}, {10.5, 
+         9.526279441628825}, {12, 8.660254037844386}, {13.5, 
+         9.526279441628825}, {13.5, 11.258330249197702`}, {
+         12, 12.12435565298214}}]]},
+     "37"],
+    Annotation[#, 37, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.24504, 0.31136811111111107`, 0.18885022222222222`], 
+      PolygonBox[
+       NCache[{{3, 5 3^Rational[1, 2]}, {3, 4 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         6, 4 3^Rational[1, 2]}, {6, 5 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         3, 8.660254037844386}, {3, 6.928203230275509}, {4.5, 
+         6.06217782649107}, {6, 6.928203230275509}, {6, 8.660254037844386}, {
+         4.5, 9.526279441628825}}]]},
+     "6"],
+    Annotation[#, 6, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.216032, 0.26909448888888887`, 0.1710801777777778], 
+      PolygonBox[
+       NCache[{{3, 8 3^Rational[1, 2]}, {3, 7 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         6, 7 3^Rational[1, 2]}, {6, 8 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         3, 13.856406460551018`}, {3, 12.12435565298214}, {4.5, 
+         11.258330249197702`}, {6, 12.12435565298214}, {
+         6, 13.856406460551018`}, {4.5, 14.722431864335457`}}]]},
+     "5"],
+    Annotation[#, 5, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.3889596444444444, 0.5234020222222223, 0.3018882666666667], 
+      PolygonBox[
+       NCache[{{12, 5 3^Rational[1, 2]}, {12, 4 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         15, 4 3^Rational[1, 2]}, {15, 5 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         12, 8.660254037844386}, {12, 6.928203230275509}, {13.5, 
+         6.06217782649107}, {15, 6.928203230275509}, {
+         15, 8.660254037844386}, {13.5, 9.526279441628825}}]]},
+     "12"],
+    Annotation[#, 12, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.882911, 0.359638, 0.360092], 
+      PolygonBox[
+       NCache[{{Rational[15, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         9, 5 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         9, 7 3^Rational[1, 2]}}, {{7.5, 11.258330249197702`}, {7.5, 
+         9.526279441628825}, {9, 8.660254037844386}, {10.5, 
+         9.526279441628825}, {10.5, 11.258330249197702`}, {
+         9, 12.12435565298214}}]]},
+     "46"],
+    Annotation[#, 46, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.274048, 0.3536417333333334, 0.20662026666666666`], 
+      PolygonBox[
+       NCache[{{Rational[15, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         9, 2 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         9, 4 3^Rational[1, 2]}}, {{7.5, 6.06217782649107}, {7.5, 
+         4.330127018922193}, {9, 3.4641016151377544`}, {10.5, 
+         4.330127018922193}, {10.5, 6.06217782649107}, {
+         9, 6.928203230275509}}]]},
+     "7"],
+    Annotation[#, 7, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.274048, 0.3536417333333334, 0.20662026666666666`], 
+      PolygonBox[
+       NCache[{{Rational[21, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         12, 8 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         12, 10 3^Rational[1, 2]}}, {{10.5, 16.454482671904334`}, {10.5, 
+         14.722431864335457`}, {12, 13.856406460551018`}, {13.5, 
+         14.722431864335457`}, {13.5, 16.454482671904334`}, {
+         12, 17.32050807568877}}]]},
+     "7"],
+    Annotation[#, 7, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.8448899999999999, 0.8627695333333333, 0.7544383555555556], 
+      PolygonBox[
+       NCache[{{9, 8 3^Rational[1, 2]}, {9, 7 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         12, 7 3^Rational[1, 2]}, {12, 8 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         9, 13.856406460551018`}, {9, 12.12435565298214}, {10.5, 
+         11.258330249197702`}, {12, 12.12435565298214}, {
+         12, 13.856406460551018`}, {10.5, 14.722431864335457`}}]]},
+     "32"],
+    Annotation[#, 32, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.15801600000000002`, 0.18454724444444445`, 0.1355400888888889], 
+      PolygonBox[
+       NCache[{{Rational[9, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         6, 2 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         6, 4 3^Rational[1, 2]}}, {{4.5, 6.06217782649107}, {4.5, 
+         4.330127018922193}, {6, 3.4641016151377544`}, {7.5, 
+         4.330127018922193}, {7.5, 6.06217782649107}, {
+         6, 6.928203230275509}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.9349505555555555, 0.6442432222222222, 0.6444957777777778], 
+      PolygonBox[
+       NCache[{{9, 5 3^Rational[1, 2]}, {9, 4 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         12, 4 3^Rational[1, 2]}, {12, 5 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         9, 8.660254037844386}, {9, 6.928203230275509}, {10.5, 
+         6.06217782649107}, {12, 6.928203230275509}, {
+         12, 8.660254037844386}, {10.5, 9.526279441628825}}]]},
+     "41"],
+    Annotation[#, 41, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.7339749999999999, 0.8546518666666666, 0.665784911111111], 
+      PolygonBox[
+       NCache[{{6, 5 3^Rational[1, 2]}, {6, 4 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         9, 4 3^Rational[1, 2]}, {9, 5 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         6, 8.660254037844386}, {6, 6.928203230275509}, {7.5, 
+         6.06217782649107}, {9, 6.928203230275509}, {9, 8.660254037844386}, {
+         7.5, 9.526279441628825}}]]},
+     "27"],
+    Annotation[#, 27, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.5454352, 0.7168086, 0.4621138], 
+      PolygonBox[
+       NCache[{{Rational[9, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         6, 5 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         6, 7 3^Rational[1, 2]}}, {{4.5, 11.258330249197702`}, {4.5, 
+         9.526279441628825}, {6, 8.660254037844386}, {7.5, 
+         9.526279441628825}, {7.5, 11.258330249197702`}, {
+         6, 12.12435565298214}}]]},
+     "19"],
+    Annotation[#, 19, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.129008, 0.14227362222222223`, 0.11777004444444444`], 
+      PolygonBox[
+       NCache[{{Rational[9, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[9, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         6, 8 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         6, 10 3^Rational[1, 2]}}, {{4.5, 16.454482671904334`}, {4.5, 
+         14.722431864335457`}, {6, 13.856406460551018`}, {7.5, 
+         14.722431864335457`}, {7.5, 16.454482671904334`}, {
+         6, 17.32050807568877}}]]},
+     "2"],
+    Annotation[#, 2, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.3665422222222222, 0.49023011111111114`, 0.28271433333333335`], 
+      PolygonBox[
+       NCache[{{12, 8 3^Rational[1, 2]}, {12, 7 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         15, 7 3^Rational[1, 2]}, {15, 8 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         12, 13.856406460551018`}, {12, 12.12435565298214}, {13.5, 
+         11.258330249197702`}, {15, 12.12435565298214}, {
+         15, 13.856406460551018`}, {13.5, 14.722431864335457`}}]]},
+     "11"],
+    Annotation[#, 11, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.29928995555555554`, 0.3907143777777778, 0.22519253333333333`], 
+      PolygonBox[
+       NCache[{{Rational[27, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         15, 5 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         15, 7 3^Rational[1, 2]}}, {{13.5, 11.258330249197702`}, {13.5, 
+         9.526279441628825}, {15, 8.660254037844386}, {16.5, 
+         9.526279441628825}, {16.5, 11.258330249197702`}, {
+         15, 12.12435565298214}}]]},
+     "8"],
+    Annotation[#, 8, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.47844333333333333`, 0.6399243333333333, 0.38942066666666664`], 
+      PolygonBox[
+       NCache[{{6, 8 3^Rational[1, 2]}, {6, 7 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         9, 7 3^Rational[1, 2]}, {9, 8 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         6, 13.856406460551018`}, {6, 12.12435565298214}, {7.5, 
+         11.258330249197702`}, {9, 12.12435565298214}, {
+         9, 13.856406460551018`}, {7.5, 14.722431864335457`}}]]},
+     "16"],
+    Annotation[#, 16, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.129008, 0.14227362222222223`, 0.11777004444444444`], 
+      PolygonBox[
+       NCache[{{9, 2 3^Rational[1, 2]}, {9, 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[1, 2] 3^Rational[1, 2]}, {
+         12, 3^Rational[1, 2]}, {12, 2 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[5, 2] 3^Rational[1, 2]}}, {{
+         9, 3.4641016151377544`}, {9, 1.7320508075688772`}, {10.5, 
+         0.8660254037844386}, {12, 1.7320508075688772`}, {
+         12, 3.4641016151377544`}, {10.5, 4.330127018922193}}]]},
+     "2"],
+    Annotation[#, 2, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.15801600000000002`, 0.18454724444444445`, 0.1355400888888889], 
+      PolygonBox[
+       NCache[{{6, 11 3^Rational[1, 2]}, {6, 10 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         9, 10 3^Rational[1, 2]}, {9, 11 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[23, 2] 3^Rational[1, 2]}}, {{
+         6, 19.05255888325765}, {6, 17.32050807568877}, {7.5, 
+         16.454482671904334`}, {9, 17.32050807568877}, {
+         9, 19.05255888325765}, {7.5, 19.918584287042087`}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.15801600000000002`, 0.18454724444444445`, 0.1355400888888889], 
+      PolygonBox[
+       NCache[{{Rational[27, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         15, 2 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         15, 4 3^Rational[1, 2]}}, {{13.5, 6.06217782649107}, {13.5, 
+         4.330127018922193}, {15, 3.4641016151377544`}, {16.5, 
+         4.330127018922193}, {16.5, 6.06217782649107}, {
+         15, 6.928203230275509}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.129008, 0.14227362222222223`, 0.11777004444444444`], 
+      PolygonBox[
+       NCache[{{15, 8 3^Rational[1, 2]}, {15, 7 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         18, 7 3^Rational[1, 2]}, {18, 8 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[17, 2] 3^Rational[1, 2]}}, {{
+         15, 13.856406460551018`}, {15, 12.12435565298214}, {16.5, 
+         11.258330249197702`}, {18, 12.12435565298214}, {
+         18, 13.856406460551018`}, {16.5, 14.722431864335457`}}]]},
+     "2"],
+    Annotation[#, 2, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.1, 0.1, 0.1], 
+      PolygonBox[
+       NCache[{{Rational[33, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         18, 5 3^Rational[1, 2]}, {
+         Rational[39, 2], Rational[11, 2] 3^Rational[1, 2]}, {
+         Rational[39, 2], Rational[13, 2] 3^Rational[1, 2]}, {
+         18, 7 3^Rational[1, 2]}}, {{16.5, 11.258330249197702`}, {16.5, 
+         9.526279441628825}, {18, 8.660254037844386}, {19.5, 
+         9.526279441628825}, {19.5, 11.258330249197702`}, {
+         18, 12.12435565298214}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.216032, 0.26909448888888887`, 0.1710801777777778], 
+      PolygonBox[
+       NCache[{{Rational[15, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[15, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         9, 8 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         9, 10 3^Rational[1, 2]}}, {{7.5, 16.454482671904334`}, {7.5, 
+         14.722431864335457`}, {9, 13.856406460551018`}, {10.5, 
+         14.722431864335457`}, {10.5, 16.454482671904334`}, {
+         9, 17.32050807568877}}]]},
+     "5"],
+    Annotation[#, 5, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[
+      0.15801600000000002`, 0.18454724444444445`, 0.1355400888888889], 
+      PolygonBox[
+       NCache[{{Rational[21, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         Rational[21, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         12, 2 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[5, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         12, 4 3^Rational[1, 2]}}, {{10.5, 6.06217782649107}, {10.5, 
+         4.330127018922193}, {12, 3.4641016151377544`}, {13.5, 
+         4.330127018922193}, {13.5, 6.06217782649107}, {
+         12, 6.928203230275509}}]]},
+     "3"],
+    Annotation[#, 3, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.1, 0.1, 0.1], 
+      PolygonBox[
+       NCache[{{Rational[27, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         Rational[27, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         15, 8 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[17, 2] 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[19, 2] 3^Rational[1, 2]}, {
+         15, 10 3^Rational[1, 2]}}, {{13.5, 16.454482671904334`}, {13.5, 
+         14.722431864335457`}, {15, 13.856406460551018`}, {16.5, 
+         14.722431864335457`}, {16.5, 16.454482671904334`}, {
+         15, 17.32050807568877}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ], 
+   TagBox[
+    TooltipBox[
+     {RGBColor[0.1, 0.1, 0.1], 
+      PolygonBox[
+       NCache[{{15, 5 3^Rational[1, 2]}, {15, 4 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[7, 2] 3^Rational[1, 2]}, {
+         18, 4 3^Rational[1, 2]}, {18, 5 3^Rational[1, 2]}, {
+         Rational[33, 2], Rational[11, 2] 3^Rational[1, 2]}}, {{
+         15, 8.660254037844386}, {15, 6.928203230275509}, {16.5, 
+         6.06217782649107}, {18, 6.928203230275509}, {
+         18, 8.660254037844386}, {16.5, 9.526279441628825}}]]},
+     "1"],
+    Annotation[#, 1, "Tooltip"]& ]},
+  Frame->True,
+  PlotRange->All,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{3.89162032410212*^9},
+ CellLabel->"Out[6]=",
+ CellID->388610115,ExpressionUUID->"d1985e43-c9cb-455c-a076-210fdbf5d8f9"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 
 Cell[BoxData[
@@ -636,7 +1905,7 @@ Cell["Metadata", "MetadataSection",
 
 Cell[TextData[{
  "New in: ",
- Cell["XX", "HistoryData",
+ Cell["1.0.0", "HistoryData",
   CellTags->"New",ExpressionUUID->"8612aee2-5662-4114-bf75-32741a7d515f"],
  " | Modified in: ",
  Cell[" ", "HistoryData",
@@ -646,6 +1915,8 @@ Cell[TextData[{
   CellTags->"Obsolete",ExpressionUUID->
   "0bb6a5fb-3ff8-439d-9186-8dd1a675ee36"]
 }], "History",
+ CellChangeTimes->{{3.864923683926749*^9, 3.864923685610183*^9}, {
+  3.891620405844933*^9, 3.891620409624187*^9}},
  CellID->2089455738,ExpressionUUID->"9b0274d8-d67e-4647-86b6-dcbd430c11ff"],
 
 Cell[CellGroupData[{
@@ -715,7 +1986,7 @@ Cell[BoxData[""], "Template",
 }, Open  ]]
 },
 WindowSize->{1097, 893},
-WindowMargins->{{5, Automatic}, {Automatic, 0}},
+WindowMargins->{{Automatic, 1156}, {Automatic, 85}},
 TaggingRules-><|"Paclet" -> "AntonAntonov/TileStats"|>,
 CellContext->"Global`",
 FrontEndVersion->"13.2 for Mac OS X ARM (64-bit) (January 30, 2023)",
@@ -728,15 +1999,20 @@ ExpressionUUID->"7c7daaf5-fdcb-4d6d-9002-5481960cae10"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
+ "DefaultContent"->{
+  Cell[8662, 255, 246, 4, 24, "ExampleText",ExpressionUUID->"2adb4935-20d3-4b30-9251-322e13f5db4c",
+   CellTags->"DefaultContent",
+   CellID->319073343]},
  "ExtendedExamples"->{
-  Cell[8205, 241, 488, 13, 58, "ExtendedExamplesSection",ExpressionUUID->"57d02d65-71c4-416d-8160-637774ff201b",
+  Cell[40330, 924, 488, 13, 58, "ExtendedExamplesSection",ExpressionUUID->"57d02d65-71c4-416d-8160-637774ff201b",
    CellTags->"ExtendedExamples",
    CellID->1511090917]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 25604, 730}
+ {"DefaultContent", 83817, 2001},
+ {"ExtendedExamples", 83995, 2005}
  }
 *)
 (*NotebookFileOutline
@@ -749,186 +2025,151 @@ Cell[697, 25, 876, 24, 80, "Usage",ExpressionUUID->"eebc1eaa-93bc-4083-b26e-8929
 Cell[1576, 51, 128, 1, 27, "Notes",ExpressionUUID->"af1f87cc-178d-4aba-9c21-a04118369ee0",
  CellID->208334442],
 Cell[1707, 54, 1595, 31, 103, "3ColumnTableMod",ExpressionUUID->"0b40ab4a-d004-4b3d-bdcc-f151709f8db4",
- CellID->1078622084]
+ CellID->1078622084],
+Cell[3305, 87, 454, 12, 28, "Notes",ExpressionUUID->"66fe9375-8ec0-4fb8-8b69-6bd9b3a2ae09",
+ CellID->1172259713]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3339, 90, 436, 12, 41, "TechNotesSection",ExpressionUUID->"fa66d76f-effd-42e3-ad0b-d9d978f5af5f",
+Cell[3796, 104, 436, 12, 41, "TechNotesSection",ExpressionUUID->"fa66d76f-effd-42e3-ad0b-d9d978f5af5f",
  CellID->1491901461],
-Cell[3778, 104, 100, 1, 19, "Tutorials",ExpressionUUID->"7b6cdb0d-00a7-4bc0-b344-a790162e6e2f",
+Cell[4235, 118, 100, 1, 19, "Tutorials",ExpressionUUID->"7b6cdb0d-00a7-4bc0-b344-a790162e6e2f",
  CellID->368792655]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3915, 110, 472, 13, 40, "RelatedLinksSection",ExpressionUUID->"d9bf4a4c-2c76-4f13-8afe-9d65f7adf030",
+Cell[4372, 124, 472, 13, 40, "RelatedLinksSection",ExpressionUUID->"d9bf4a4c-2c76-4f13-8afe-9d65f7adf030",
  CellID->660347343],
-Cell[4390, 125, 103, 1, 19, "RelatedLinks",ExpressionUUID->"ee242515-a718-44de-a53a-5ff05f80fbd0",
+Cell[4847, 139, 103, 1, 19, "RelatedLinks",ExpressionUUID->"ee242515-a718-44de-a53a-5ff05f80fbd0",
  CellID->262306105]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4530, 131, 459, 13, 40, "SeeAlsoSection",ExpressionUUID->"73422f3a-3801-4703-8d12-e85e18d8aa98",
+Cell[4987, 145, 459, 13, 40, "SeeAlsoSection",ExpressionUUID->"73422f3a-3801-4703-8d12-e85e18d8aa98",
  CellID->1942263091],
-Cell[4992, 146, 1654, 42, 26, "SeeAlso",ExpressionUUID->"5953d9b5-6f21-4a7a-9082-c027e41ebd6c",
+Cell[5449, 160, 1654, 42, 26, "SeeAlso",ExpressionUUID->"5953d9b5-6f21-4a7a-9082-c027e41ebd6c",
  CellID->1864336037]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6683, 193, 184, 2, 40, "MoreAboutSection",ExpressionUUID->"db31f944-7454-4a98-babe-1ef53d9bfa2e",
+Cell[7140, 207, 184, 2, 40, "MoreAboutSection",ExpressionUUID->"db31f944-7454-4a98-babe-1ef53d9bfa2e",
  CellID->2109364129],
-Cell[6870, 197, 101, 1, 19, "MoreAbout",ExpressionUUID->"c2aeb894-d131-4b77-93b5-19b9a73c88e1",
+Cell[7327, 211, 101, 1, 19, "MoreAbout",ExpressionUUID->"c2aeb894-d131-4b77-93b5-19b9a73c88e1",
  CellID->1422871427]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7008, 203, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"f2c129d9-24e4-43a7-b96b-244236bc5010",
+Cell[7465, 217, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"f2c129d9-24e4-43a7-b96b-244236bc5010",
  CellID->1969664244],
-Cell[7542, 219, 182, 3, 47, "ExampleInitialization",ExpressionUUID->"05c7b2e5-5386-4e79-ba77-7e82e637ed2d",
+Cell[7999, 233, 182, 3, 47, "ExampleInitialization",ExpressionUUID->"05c7b2e5-5386-4e79-ba77-7e82e637ed2d",
  CellID->686530403]
 }, Open  ]],
-Cell[7739, 225, 441, 12, 73, "PrimaryExamplesSection",ExpressionUUID->"8baca691-d98e-4daf-8ff0-66903059c696",
- CellID->86847890],
 Cell[CellGroupData[{
-Cell[8205, 241, 488, 13, 58, "ExtendedExamplesSection",ExpressionUUID->"57d02d65-71c4-416d-8160-637774ff201b",
+Cell[8218, 241, 441, 12, 73, "PrimaryExamplesSection",ExpressionUUID->"8baca691-d98e-4daf-8ff0-66903059c696",
+ CellID->86847890],
+Cell[8662, 255, 246, 4, 24, "ExampleText",ExpressionUUID->"2adb4935-20d3-4b30-9251-322e13f5db4c",
+ CellTags->"DefaultContent",
+ CellID->319073343],
+Cell[8911, 261, 764, 19, 66, "Input",ExpressionUUID->"de73bfac-04d8-426d-98ca-6799407d7e4a",
+ CellID->1199084357],
+Cell[9678, 282, 337, 5, 24, "ExampleText",ExpressionUUID->"af0e6c5b-3f48-4e12-9879-be395cdaaa72",
+ CellID->808302032],
+Cell[CellGroupData[{
+Cell[10040, 291, 457, 11, 27, "Input",ExpressionUUID->"d8867ab2-8414-483c-9a64-851e11aee155",
+ CellID->1933288277],
+Cell[10500, 304, 10606, 202, 242, "Output",ExpressionUUID->"7cf547dd-1949-4e22-bfa3-6da8e2562610",
+ CellID->1618741829]
+}, Open  ]],
+Cell[21121, 509, 208, 2, 24, "ExampleText",ExpressionUUID->"4b46d3e7-4b90-47cf-bbf5-de1a958d191a",
+ CellID->1736736222],
+Cell[CellGroupData[{
+Cell[21354, 515, 504, 12, 27, "Input",ExpressionUUID->"963c37f2-b061-4e38-83b8-899f97d1cc42",
+ CellID->2105199059],
+Cell[21861, 529, 18420, 389, 238, "Output",ExpressionUUID->"932145a6-a055-4cdd-95be-6a39b9abf32c",
+ CellID->1871079807]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40330, 924, 488, 13, 58, "ExtendedExamplesSection",ExpressionUUID->"57d02d65-71c4-416d-8160-637774ff201b",
  CellTags->"ExtendedExamples",
  CellID->1511090917],
-Cell[8696, 256, 241, 5, 35, "ExampleSection",ExpressionUUID->"c944fd4f-f12b-4ac7-a76a-a12730688b2b",
+Cell[40821, 939, 241, 5, 35, "ExampleSection",ExpressionUUID->"c944fd4f-f12b-4ac7-a76a-a12730688b2b",
  CellID->763432597],
-Cell[8940, 263, 265, 5, 23, "ExampleSection",ExpressionUUID->"a108c890-82d0-4b93-bd36-551b1e52650e",
+Cell[41065, 946, 265, 5, 23, "ExampleSection",ExpressionUUID->"a108c890-82d0-4b93-bd36-551b1e52650e",
  CellID->1944350601],
 Cell[CellGroupData[{
-Cell[9230, 272, 244, 5, 23, "ExampleSection",ExpressionUUID->"5bccfe9b-372d-4290-a901-c8bcdb79dfb5",
+Cell[41355, 955, 244, 5, 23, "ExampleSection",ExpressionUUID->"5bccfe9b-372d-4290-a901-c8bcdb79dfb5",
  CellID->1103029526],
-Cell[9477, 279, 266, 5, 26, "ExampleSubsection",ExpressionUUID->"cc5c41ca-e92d-446b-ad11-8aee300e3f59",
+Cell[41602, 962, 266, 5, 26, "ExampleSubsection",ExpressionUUID->"cc5c41ca-e92d-446b-ad11-8aee300e3f59",
  CellID->1538402578],
-Cell[9746, 286, 259, 5, 22, "ExampleSubsection",ExpressionUUID->"08f9388b-e4da-4a06-a5a9-0e5cb4d3d273",
+Cell[41871, 969, 259, 5, 22, "ExampleSubsection",ExpressionUUID->"08f9388b-e4da-4a06-a5a9-0e5cb4d3d273",
  CellID->229018566],
-Cell[10008, 293, 254, 5, 22, "ExampleSubsection",ExpressionUUID->"0e48e931-0784-4346-90f0-20007b136b89",
+Cell[42133, 976, 254, 5, 22, "ExampleSubsection",ExpressionUUID->"0e48e931-0784-4346-90f0-20007b136b89",
  CellID->824343338],
-Cell[10265, 300, 255, 5, 22, "ExampleSubsection",ExpressionUUID->"1800fcc4-c7a5-49dc-b1ac-dc52396b06d5",
+Cell[42390, 983, 255, 5, 22, "ExampleSubsection",ExpressionUUID->"1800fcc4-c7a5-49dc-b1ac-dc52396b06d5",
  CellID->1321474969],
-Cell[10523, 307, 259, 5, 22, "ExampleSubsection",ExpressionUUID->"16621ce6-b849-44a1-98ca-bc65b6eb07e9",
+Cell[42648, 990, 259, 5, 22, "ExampleSubsection",ExpressionUUID->"16621ce6-b849-44a1-98ca-bc65b6eb07e9",
  CellID->753926709],
-Cell[10785, 314, 256, 5, 22, "ExampleSubsection",ExpressionUUID->"a005190e-9d62-4b65-a9be-eab0cf446f61",
+Cell[CellGroupData[{
+Cell[42932, 999, 256, 5, 22, "ExampleSubsection",ExpressionUUID->"a005190e-9d62-4b65-a9be-eab0cf446f61",
  CellID->1092680863],
-Cell[11044, 321, 254, 5, 22, "ExampleSubsection",ExpressionUUID->"68b403b6-fdf4-45ab-a2e9-b1ac9cec03d4",
- CellID->1554598944],
-Cell[11301, 328, 257, 5, 22, "ExampleSubsection",ExpressionUUID->"326b78f8-0ca6-417d-b1e5-bbf038aadc55",
- CellID->1858402406],
-Cell[11561, 335, 254, 5, 22, "ExampleSubsection",ExpressionUUID->"343fee99-3f81-45c0-9584-892eaed42c1b",
- CellID->1167075674],
-Cell[11818, 342, 247, 5, 22, "ExampleSubsection",ExpressionUUID->"15b20f15-40bc-4e57-a175-d9f0f29c4d8e",
- CellID->2072704867],
-Cell[12068, 349, 252, 5, 22, "ExampleSubsection",ExpressionUUID->"4000fda0-364a-4be4-a268-8e6344c6da54",
- CellID->1618461682],
-Cell[12323, 356, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"b5e4286f-1f3b-40b0-9eae-fff095f43aec",
- CellID->1457616472],
-Cell[12579, 363, 252, 5, 22, "ExampleSubsection",ExpressionUUID->"b21f138b-7c7b-4eb2-946e-f3f1ec6dc1ba",
- CellID->1814083575],
-Cell[12834, 370, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"f2237a90-f978-4219-87cf-21bc1495a51d",
- CellID->1477308566],
-Cell[13090, 377, 259, 5, 22, "ExampleSubsection",ExpressionUUID->"4e99056a-c35b-4fda-a373-ff604daf5ddd",
- CellID->2066625795],
-Cell[13352, 384, 251, 5, 22, "ExampleSubsection",ExpressionUUID->"34852ea4-5136-490b-85c6-306b3a190232",
- CellID->379229987],
-Cell[13606, 391, 254, 5, 22, "ExampleSubsection",ExpressionUUID->"e0063471-0793-46df-ac56-de3a3c96a429",
- CellID->2134410860],
-Cell[13863, 398, 260, 5, 22, "ExampleSubsection",ExpressionUUID->"233366ae-afd2-448b-9a33-da07e6eeb1ba",
- CellID->1476484532],
-Cell[14126, 405, 265, 5, 22, "ExampleSubsection",ExpressionUUID->"694bae73-0d2c-4457-b1f2-34452d660dc3",
- CellID->1101988239],
-Cell[14394, 412, 258, 5, 22, "ExampleSubsection",ExpressionUUID->"a7911389-dea5-4ec9-80db-dac07cc32c5e",
- CellID->1217361145],
-Cell[14655, 419, 249, 5, 22, "ExampleSubsection",ExpressionUUID->"e0656268-c6ab-4be7-a273-3aae9dd811d5",
- CellID->1112059046],
-Cell[14907, 426, 252, 5, 22, "ExampleSubsection",ExpressionUUID->"5ee5af1d-e07d-4d82-9d02-bd1cf2c2bdfd",
- CellID->826206281],
-Cell[15162, 433, 247, 5, 22, "ExampleSubsection",ExpressionUUID->"6f22614e-cf55-4d75-aec1-100257bd9ca7",
- CellID->419703265],
-Cell[15412, 440, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"ed78704f-25d9-4e77-a6b4-1960a2954f93",
- CellID->1616478107],
-Cell[15668, 447, 252, 5, 22, "ExampleSubsection",ExpressionUUID->"c1db68cc-fd82-4d76-8ba7-f4b97cc97eca",
- CellID->331926152],
-Cell[15923, 454, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"5ec20c00-7c1b-44f1-bbfd-a9e22e3747cb",
- CellID->1667805405],
-Cell[16179, 461, 258, 5, 22, "ExampleSubsection",ExpressionUUID->"6e04458f-abc3-4cd3-bee5-666addc9b605",
- CellID->1848881191],
-Cell[16440, 468, 250, 5, 22, "ExampleSubsection",ExpressionUUID->"5a50f737-2dd9-45e7-97ec-82ea3ca68b9e",
- CellID->57805047],
-Cell[16693, 475, 256, 5, 22, "ExampleSubsection",ExpressionUUID->"8d724ffa-b507-4466-9be0-37bb795fe14e",
- CellID->866816485],
-Cell[16952, 482, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"f68e09ab-fad6-426b-bad5-455493817166",
- CellID->55602147],
-Cell[17208, 489, 254, 5, 22, "ExampleSubsection",ExpressionUUID->"0a748e11-b458-4829-b47f-9980e5b455b2",
- CellID->349898184],
-Cell[17465, 496, 251, 5, 22, "ExampleSubsection",ExpressionUUID->"2847a94a-8ffd-4ef5-b718-9300388e88e0",
- CellID->928553002],
-Cell[17719, 503, 254, 5, 22, "ExampleSubsection",ExpressionUUID->"c2dafbc9-c264-4a8a-b12c-c070c78c08a1",
- CellID->426641865],
-Cell[17976, 510, 252, 5, 22, "ExampleSubsection",ExpressionUUID->"4ae4b310-b53f-4caa-97f1-9db974537e32",
- CellID->121927722],
-Cell[18231, 517, 248, 5, 22, "ExampleSubsection",ExpressionUUID->"5eb076d9-c71b-4ce5-bea9-cc67c4d34d70",
- CellID->539824416],
-Cell[18482, 524, 252, 5, 22, "ExampleSubsection",ExpressionUUID->"032c97dc-3b9d-4497-8516-82a9cd15f519",
- CellID->1858034784],
-Cell[18737, 531, 252, 5, 22, "ExampleSubsection",ExpressionUUID->"c9741da3-85c9-411e-89f4-5b51833258ca",
- CellID->1430903661],
-Cell[18992, 538, 260, 5, 22, "ExampleSubsection",ExpressionUUID->"ff9c89c5-4173-4cf4-8694-d8e4aae636e3",
- CellID->1675951321],
-Cell[19255, 545, 259, 5, 22, "ExampleSubsection",ExpressionUUID->"54077f50-1ded-4ce3-aae5-19b1c0494cb8",
- CellID->1318337995],
-Cell[19517, 552, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"8342ff2d-52ef-4c97-9c1e-24a89b714286",
- CellID->1717895866],
-Cell[19773, 559, 263, 5, 22, "ExampleSubsection",ExpressionUUID->"a2c84516-6a8c-48b8-bd6b-386a18fa0e36",
- CellID->1905669594],
-Cell[20039, 566, 249, 5, 22, "ExampleSubsection",ExpressionUUID->"28eaa251-effb-4b6b-980a-d8911329e222",
- CellID->1017755000],
-Cell[20291, 573, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"39be36cb-59f4-4199-b9bb-3e762f6f7519",
- CellID->701036645],
-Cell[20547, 580, 248, 5, 22, "ExampleSubsection",ExpressionUUID->"c9396203-c5b6-4fc7-bab4-a66f369f2523",
- CellID->1227605073],
-Cell[20798, 587, 253, 5, 22, "ExampleSubsection",ExpressionUUID->"987869b9-33b1-4b0b-bb38-27d10225655f",
- CellID->1483065182]
+Cell[43191, 1006, 203, 2, 24, "ExampleText",ExpressionUUID->"d7d30d4c-54bc-4bd4-81c5-5ee2e3dd40c1",
+ CellID->205386040],
+Cell[CellGroupData[{
+Cell[43419, 1012, 621, 16, 47, "Input",ExpressionUUID->"b01c9458-f298-4548-92dc-42fa7fc6bfb9",
+ CellID->1283751707],
+Cell[44043, 1030, 17983, 445, 250, "Output",ExpressionUUID->"7dca6f46-ed53-4c6e-85cc-a476ae9e8bc1",
+ CellID->1617237217]
 }, Open  ]],
-Cell[21066, 595, 249, 5, 35, "ExampleSection",ExpressionUUID->"4962c771-db3d-4548-8047-d08f9d58b2cd",
+Cell[62041, 1478, 198, 2, 24, "ExampleText",ExpressionUUID->"367edd35-3bf5-41db-a54e-2e65d82578fb",
+ CellID->62721652],
+Cell[CellGroupData[{
+Cell[62264, 1484, 414, 8, 47, "Input",ExpressionUUID->"7dfc59ed-6c64-4c66-a8bd-6bfea0b37d22",
+ CellID->229332292],
+Cell[62681, 1494, 16439, 365, 250, "Output",ExpressionUUID->"d1985e43-c9cb-455c-a076-210fdbf5d8f9",
+ CellID->388610115]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[79159, 1864, 249, 5, 35, "ExampleSection",ExpressionUUID->"4962c771-db3d-4548-8047-d08f9d58b2cd",
  CellID->1404643085],
-Cell[21318, 602, 258, 5, 23, "ExampleSection",ExpressionUUID->"77a05600-6127-4c86-a84d-0bf624043cbd",
+Cell[79411, 1871, 258, 5, 23, "ExampleSection",ExpressionUUID->"77a05600-6127-4c86-a84d-0bf624043cbd",
  CellID->548598124],
-Cell[21579, 609, 252, 5, 23, "ExampleSection",ExpressionUUID->"6066747d-b13a-4c30-9219-cbac82bdee33",
+Cell[79672, 1878, 252, 5, 23, "ExampleSection",ExpressionUUID->"6066747d-b13a-4c30-9219-cbac82bdee33",
  CellID->1141373497],
-Cell[21834, 616, 257, 5, 23, "ExampleSection",ExpressionUUID->"d3647526-7799-40c0-968d-5f2acbf94768",
+Cell[79927, 1885, 257, 5, 23, "ExampleSection",ExpressionUUID->"d3647526-7799-40c0-968d-5f2acbf94768",
  CellID->1740429075],
-Cell[22094, 623, 249, 5, 23, "ExampleSection",ExpressionUUID->"61edf7a1-ed42-4cb6-8ad1-e154fa95e9bc",
+Cell[80187, 1892, 249, 5, 23, "ExampleSection",ExpressionUUID->"61edf7a1-ed42-4cb6-8ad1-e154fa95e9bc",
  CellID->516707738]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22380, 633, 111, 1, 72, "MetadataSection",ExpressionUUID->"65144f5c-4ad0-4d73-b2b9-99aed12b34bb",
+Cell[80473, 1902, 111, 1, 72, "MetadataSection",ExpressionUUID->"65144f5c-4ad0-4d73-b2b9-99aed12b34bb",
  CellID->2030567745],
-Cell[22494, 636, 477, 12, 26, "History",ExpressionUUID->"9b0274d8-d67e-4647-86b6-dcbd430c11ff",
+Cell[80587, 1905, 595, 14, 26, "History",ExpressionUUID->"9b0274d8-d67e-4647-86b6-dcbd430c11ff",
  CellID->2089455738],
 Cell[CellGroupData[{
-Cell[22996, 652, 485, 13, 21, "CategorizationSection",ExpressionUUID->"ce0a6a30-7f4c-4e69-957b-f52fab093183",
+Cell[81207, 1923, 485, 13, 21, "CategorizationSection",ExpressionUUID->"ce0a6a30-7f4c-4e69-957b-f52fab093183",
  CellID->1829992822],
-Cell[23484, 667, 134, 2, 35, "Categorization",ExpressionUUID->"5a5478ee-6525-4c90-b858-22b205b7ab8c",
+Cell[81695, 1938, 134, 2, 35, "Categorization",ExpressionUUID->"5a5478ee-6525-4c90-b858-22b205b7ab8c",
  CellID->428567020],
-Cell[23621, 671, 149, 2, 35, "Categorization",ExpressionUUID->"3ba568b6-f1c3-449b-833b-836025d8f92c",
+Cell[81832, 1942, 149, 2, 35, "Categorization",ExpressionUUID->"3ba568b6-f1c3-449b-833b-836025d8f92c",
  CellID->33823145],
-Cell[23773, 675, 148, 2, 35, "Categorization",ExpressionUUID->"e323cd3a-24fe-4ddc-8dd8-b372569f784d",
+Cell[81984, 1946, 148, 2, 35, "Categorization",ExpressionUUID->"e323cd3a-24fe-4ddc-8dd8-b372569f784d",
  CellID->1529915207],
-Cell[23924, 679, 164, 2, 35, "Categorization",ExpressionUUID->"40996857-4937-4559-b913-13c04618324a",
+Cell[82135, 1950, 164, 2, 35, "Categorization",ExpressionUUID->"40996857-4937-4559-b913-13c04618324a",
  CellID->1463178518]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[24125, 686, 110, 1, 21, "KeywordsSection",ExpressionUUID->"108fee62-29dd-4cbb-b82f-2b59f88c3f91",
+Cell[82336, 1957, 110, 1, 21, "KeywordsSection",ExpressionUUID->"108fee62-29dd-4cbb-b82f-2b59f88c3f91",
  CellID->560578120],
-Cell[24238, 689, 99, 1, 70, "Keywords",ExpressionUUID->"1d0203fd-bc27-4095-aba4-360e0db144a6",
+Cell[82449, 1960, 99, 1, 70, "Keywords",ExpressionUUID->"1d0203fd-bc27-4095-aba4-360e0db144a6",
  CellID->625703451]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[24374, 695, 120, 1, 21, "TemplatesSection",ExpressionUUID->"40845952-cc74-4313-af58-b15fcdd3b19f",
+Cell[82585, 1966, 120, 1, 21, "TemplatesSection",ExpressionUUID->"40845952-cc74-4313-af58-b15fcdd3b19f",
  CellID->2117965245],
-Cell[24497, 698, 149, 2, 70, "Template",ExpressionUUID->"e292ff16-0916-423d-9285-00b2a1dcf6c1",
+Cell[82708, 1969, 149, 2, 70, "Template",ExpressionUUID->"e292ff16-0916-423d-9285-00b2a1dcf6c1",
  CellID->2100423690],
-Cell[24649, 702, 138, 2, 70, "Template",ExpressionUUID->"11de3806-0e58-45fd-9bb1-c9980f552497",
+Cell[82860, 1973, 138, 2, 70, "Template",ExpressionUUID->"11de3806-0e58-45fd-9bb1-c9980f552497",
  CellID->1484768444],
-Cell[24790, 706, 135, 2, 70, "Template",ExpressionUUID->"96508447-11a7-4549-89cb-2704b3957290",
+Cell[83001, 1977, 135, 2, 70, "Template",ExpressionUUID->"96508447-11a7-4549-89cb-2704b3957290",
  CellID->743260168],
-Cell[24928, 710, 136, 2, 70, "Template",ExpressionUUID->"e86f61db-9907-49d3-92cd-6d5cca86126d",
+Cell[83139, 1981, 136, 2, 70, "Template",ExpressionUUID->"e86f61db-9907-49d3-92cd-6d5cca86126d",
  CellID->61268977]
 }, Closed]]
 }, Open  ]]
