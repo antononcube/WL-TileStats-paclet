@@ -68,7 +68,7 @@ Clear[NearestWithinTile];
 NearestWithinTile = Nearest[{{0, 0}, {1, 0}, {1 / 2, Sqrt[3] / 2}, {0, Sqrt[3]}, {1, Sqrt[3]}}];
 
 Clear[TileContaining];
-TileContaining[{x_, y_}] := {Floor[x], Sqrt[3] Floor[y / Sqrt[3]]};
+TileContaining[{x_, y_}] := {Floor[x], Sqrt[3] * Floor[y / Sqrt[3]]};
 
 Clear[NearestHexagon];
 NearestHexagon[point : {_?NumericQ, _?NumericQ}] :=
